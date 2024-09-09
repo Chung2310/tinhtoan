@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+<h2>Tính toán thuế</h2>
+
+<form method="post" asp-controller="Tax" asp-action="Calculate">
+    <div>
+        <label>Thu nhập 1:</label>
+        <input type="number" name="income1" step="0.01" required />
+    </div>
+    <div>
+        <label>Thu nhập 2:</label>
+        <input type="number" name="income2" step="0.01" required />
+    </div>
+    <button type="submit">Tính thuế</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <h3>Tổng sau thuế: @ViewBag.Result</h3>
+}

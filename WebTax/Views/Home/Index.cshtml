@@ -1,0 +1,35 @@
+﻿@model double?
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tax Calculator</h1>
+        <form class="tax-form" action="/Home/Tinhtoan" method="post">
+            <label for="tien1">Số tiền nguồn thu nhập 1:</label>
+            <input type="number" id="tien1" name="tien1" placeholder="VD: 1000000" required>
+
+            <label for="tien2">Số tiền nguồn thu nhập 2:</label>
+            <input type="number" id="tien2" name="tien2" placeholder="VD: 1000000" required>
+            <br />
+            <label for="ptthue">Phần trăm thuế (%):</label>
+            <input type="number" step="0.1" id="ptthue" name="ptthue" placeholder="VD: 0.1" required>
+
+            <button type="submit">Tính</button>
+        </form>
+
+        @if (Model.HasValue)
+        {
+            <div class="result">
+                <p>Số tiền thuế phải trả: @Model.Value.ToString("C")</p>
+            </div>
+        }
+    </div>
+</body>
+</html>
